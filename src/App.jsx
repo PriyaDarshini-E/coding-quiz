@@ -9,7 +9,7 @@ import Css from "./components/Css";
 import Tailwind from "./components/Tailwind";
 import Short_begin from "./components/Short_begin";
 import Short_inter from "./components/Short_inter";
-import Short_advan from "./components/short_advan";
+import Short_advan from "./components/Short_advan";
 
 const App = () => {
   return (
