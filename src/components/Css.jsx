@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Html = () => {
+const Css = () => {
   const navigate = useNavigate();
 
   return (
@@ -21,7 +21,7 @@ const Html = () => {
         </button>
 
         <header className="text-lg md:text-xl font-extrabold text-white tracking-wide">
-          ⌨️ HTML Quiz
+          CSS Quiz
         </header>
       </div>
 
@@ -48,4 +48,4 @@ const Html = () => {
   );
 };
 
-export default Html;
+export default Css;
