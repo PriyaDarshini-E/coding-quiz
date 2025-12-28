@@ -15,9 +15,9 @@ import Html_inter from "./components/Html_inter";
 import Html_advan from "./components/Html_advan";
 
 import Css from "./components/Css";
-import Css_begin from "./components/css_begin";
-import Css_inter from "./components/css_inter";
-import Css_advan from "./components/css_advan";
+import Css_begin from "./components/Css_begin";
+import Css_inter from "./components/Css_inter";
+import Css_advan from "./components/Css_advan";
 
 import Tailwind from "./components/Tailwind";
 import Tailwind_begin from "./components/Tailwind_begin";
@@ -29,10 +29,10 @@ import Bootstrap_begin from "./components/Bootstrap_begin";
 import Bootstrap_advan from "./components/Bootstrap_advan";
 import Bootstrap_inter from "./components/Bootstrap_inter";
 
-import Javascript from "./components/Javascript";
-import Javascript_begin from "./components/JavaScript_begin";
-import Javascript_inter from "./components/JavaScript_inter";
-import Javascript_advan from "./components/JavaScript_advan";
+import Javascript from "./components/javascript";
+import Javascript_begin from "./components/javascript_begin";
+import Javascript_inter from "./components/javascript_inter";
+import Javascript_advan from "./components/javascript_advan";
 
 import Sql from "./components/Sql";
 import Sql_begin from "./components/Sql_begin";
@@ -85,7 +85,7 @@ const App = () => {
         <Route path="/html_advan" element={<Html_advan />} />
 
 
-        <Route path="/Css" element={<Css />} />
+        <Route path="/css" element={<Css />} />
         <Route path="/css_begin" element={<Css_begin />} />
         <Route path="/css_inter" element={<Css_inter />} />
         <Route path="/css_advan" element={<Css_advan />} />
