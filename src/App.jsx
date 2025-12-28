@@ -30,9 +30,9 @@ import Bootstrap_advan from "./components/Bootstrap_advan";
 import Bootstrap_inter from "./components/Bootstrap_inter";
 
 import Javascript from "./components/Javascript";
-import Javascript_begin from "./components/JavaScript_begin";
-import Javascript_inter from "./components/JavaScript_inter";
-import Javascript_advan from "./components/JavaScript_advan";
+import Javascript_begin from "./components/Javascript_begin";
+import Javascript_inter from "./components/Javascript_inter";
+import Javascript_advan from "./components/Javascript_advan";
 
 import Sql from "./components/Sql";
 import Sql_begin from "./components/Sql_begin";
