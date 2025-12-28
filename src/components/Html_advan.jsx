@@ -541,66 +541,72 @@ const Html_advan = () => {
       <div className="flex flex-col gap-6">
 
         {/* HEADER */}
-        <div className="w-full h-16 bg-linear-to-r from-teal-600 to-cyan-500 
-        flex items-center justify-center px-10 shadow-md relative">
+        <div className="w-full h-auto min-h-[64px] bg-gradient-to-r from-teal-600 to-cyan-500 
+        flex flex-row items-center justify-between px-4 md:px-10 py-3 shadow-md">
 
           <button
-            className="absolute left-10 w-32 h-10 border border-white/40 text-white
-            rounded-lg text-sm font-semibold hover:bg-white hover:text-teal-600"
+            className="px-4 py-2 border border-white/40 text-white
+             rounded-lg text-sm font-semibold flex items-center justify-center gap-2
+             hover:bg-white hover:text-teal-600 transition-all duration-300"
             onClick={() => navigate("/html")}
           >
             BACK
           </button>
 
-          <header className="text-lg font-extrabold text-white">
+          <header className="text-sm md:text-lg font-extrabold text-white text-right md:text-center">
             📄 HTML Fundamentals Quiz - Advance level
           </header>
         </div>
 
         {/* QUESTION CARD */}
-        <div className="max-w-xl mx-auto bg-white rounded-xl shadow-lg p-6 space-y-4">
+        <div className="w-[95%] max-w-xl mx-auto bg-white rounded-xl shadow-lg p-6 space-y-4">
 
           <div className="flex justify-between text-sm font-semibold text-slate-600">
             <span>Question {current + 1} / 20</span>
-            <span>⏱ {timer}s</span>
+            <span className={timer <= 10 ? "text-red-500 animate-pulse" : "text-slate-600"}>
+              ⏱ {timer}s
+            </span>
           </div>
 
-          <h2 className="text-lg font-bold">{q.question}</h2>
+          <h2 className="text-lg md:text-xl font-bold text-slate-800">{q.question}</h2>
 
-          {q.options.map((opt, i) => (
-            <button
-              key={i}
-              disabled={selected}
-              onClick={() => handleAnswer(opt)}
-              className={`w-full p-2 rounded-lg border text-left
-                ${
-                  selected
+          <div className="space-y-3">
+            {q.options.map((opt, i) => (
+              <button
+                key={i}
+                disabled={selected}
+                onClick={() => handleAnswer(opt)}
+                className={`w-full p-3 rounded-lg border text-left font-medium transition-all
+                  ${selected
                     ? opt === q.answer
-                      ? "bg-green-200"
+                      ? "bg-green-100 border-green-500 text-green-800"
                       : opt === selected
-                      ? "bg-red-200"
-                      : "opacity-60"
-                    : "hover:bg-slate-100"
-                }`}
-            >
-              {opt}
-            </button>
-          ))}
+                        ? "bg-red-100 border-red-500 text-red-800"
+                        : "opacity-60 grayscale"
+                    : "hover:bg-slate-50 border-slate-200 hover:border-teal-400"
+                  }`}
+              >
+                {opt}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* EXPLANATION POPUP */}
       {showPopup && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-xl w-80 text-center">
-            <p className="font-bold mb-2">Correct Answer:</p>
-            <p className="mb-4">{q.answer}</p>
-            <p className="text-sm mb-4">{q.explanation}</p>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
+          <div className="bg-white p-6 rounded-xl w-full max-w-md text-center shadow-2xl animate-scale-in">
+            <p className="font-bold mb-2 text-slate-500 uppercase text-xs tracking-wider">Correct Answer</p>
+            <p className="mb-4 text-lg font-bold text-teal-600">{q.answer}</p>
+            <div className="bg-slate-50 p-4 rounded-lg mb-6 text-sm text-slate-700">
+              {q.explanation}
+            </div>
             <button
               onClick={handleNext}
-              className="bg-teal-600 text-white px-4 py-2 rounded-lg"
+              className="w-full bg-teal-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-teal-700 transition"
             >
-              Next →
+              {current === questions.length - 1 ? "Finish Quiz" : "Next Question →"}
             </button>
           </div>
         </div>
@@ -608,31 +614,34 @@ const Html_advan = () => {
 
       {/* FINAL REVIEW POPUP */}
       {showResult && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
-          <div className="bg-white rounded-xl p-6 w-80 text-center">
-            <h2 className="text-2xl font-extrabold text-teal-600 mb-4">
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 px-4">
+          <div className="bg-white rounded-xl p-8 w-full max-w-sm text-center shadow-2xl animate-scale-in">
+            <h2 className="text-2xl font-extrabold text-teal-600 mb-6">
               🎉 Quiz Completed!
             </h2>
 
-            <p>Total Questions: 20</p>
-            <p>Correct Answers: {score}</p>
-            <p>Wrong Answers: {20 - score}</p>
+            <div className="space-y-2 mb-6 text-slate-700">
+              <p className="flex justify-between"><span>Total Questions:</span> <b>20</b></p>
+              <p className="flex justify-between text-green-600"><span>Correct:</span> <b>{score}</b></p>
+              <p className="flex justify-between text-red-500"><span>Wrong:</span> <b>{20 - score}</b></p>
+            </div>
 
-            <p className="font-bold mt-2">
-              Score: {score} / 20
-            </p>
+            <div className="bg-slate-100 p-4 rounded-lg mb-6">
+              <p className="text-sm text-slate-500">Your Score</p>
+              <p className="text-3xl font-extrabold text-slate-900">{score} <span className="text-lg text-slate-400">/ 20</span></p>
+            </div>
 
-            <div className="flex gap-3 mt-4">
+            <div className="flex gap-3">
               <button
                 onClick={() => window.location.reload()}
-                className="flex-1 bg-teal-600 text-white py-2 rounded-lg"
+                className="flex-1 bg-teal-600 text-white py-2.5 rounded-lg font-semibold hover:bg-teal-700 transition"
               >
                 Restart
               </button>
 
               <button
                 onClick={() => navigate("/html")}
-                className="flex-1 border py-2 rounded-lg"
+                className="flex-1 border border-slate-300 py-2.5 rounded-lg font-semibold hover:bg-slate-50 transition"
               >
                 Back
               </button>

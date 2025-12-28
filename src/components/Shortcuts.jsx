@@ -6,7 +6,7 @@ const Shortcuts = () => {
   const [showPopupBegin, setShowPopupBegin] = useState(false);
   const [showPopupInter, setShowPopupInter] = useState(false);
   const [showPopupAdvan, setShowPopupAdvan] = useState(false);
-  
+
   return (
     <div className="flex flex-col gap-10">
 
@@ -39,12 +39,12 @@ const Shortcuts = () => {
 
         <button className="w-50 h-30 bg-slate-300 text-slate-900 font-bold 
         rounded-xl shadow-md hover:bg-slate-400 hover:shadow-lg transition"
-        onClick={() => setShowPopupInter(true)}  >
+          onClick={() => setShowPopupInter(true)}  >
           Intermediate
         </button>
 
         <button className="w-50 h-30 bg-rose-300 text-slate-900 font-bold 
-        rounded-xl shadow-md hover:bg-rose-400 hover:shadow-lg transition" 
+        rounded-xl shadow-md hover:bg-rose-400 hover:shadow-lg transition"
           onClick={() => setShowPopupAdvan(true)} >
           Advance
         </button>
@@ -89,7 +89,7 @@ const Shortcuts = () => {
       )}
 
 
-         {showPopupInter && (
+      {showPopupInter && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white rounded-xl  w-150 h-70 shadow-xl animate-scale-in flex items-center gap-10 flex-col">
 
@@ -124,10 +124,10 @@ const Shortcuts = () => {
             </div>
           </div>
         </div>
-      )}  
+      )}
 
 
-        {showPopupAdvan && (
+      {showPopupAdvan && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white rounded-xl  w-150 h-70 shadow-xl animate-scale-in flex items-center gap-10 flex-col">
 

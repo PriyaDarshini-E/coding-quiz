@@ -32,73 +32,73 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-900">
-      <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 w-700px max-w-full">
+    <div className="min-h-screen flex items-center justify-center bg-slate-900 px-4">
+      <div className="bg-slate-800 p-6 md:p-8 rounded-2xl border border-slate-700 w-full max-w-lg">
 
         {/* Heading */}
-        <div className="h-15 flex justify-center items-center">
-          <h2 className="text-3xl font-extrabold text-center text-teal-400 mb-6">
+        <div className="mb-6 flex justify-center items-center">
+          <h2 className="text-3xl font-extrabold text-center text-teal-400">
             Sign In
           </h2>
         </div>
 
         {/* Form Card */}
-        <div className="flex justify-center items-center flex-col gap-3">
-          <div className="bg-slate-200 h-35 w-100 rounded-2xl flex justify-center flex-col">
-            <div className="h-full w-full px-4 py-3 rounded-lg flex items-center justify-center">
+        <div className="flex justify-center items-center flex-col gap-6">
+          <div className="bg-slate-200 w-full rounded-2xl flex justify-center flex-col p-6 shadow-md">
 
-              <form
-                onSubmit={handleLogin}
-                className="w-full max-w-sm h-full flex justify-around flex-col"
-              >
+            <form
+              onSubmit={handleLogin}
+              className="w-full h-full flex flex-col gap-4"
+            >
 
-                {/* Email */}
-                <div className="flex items-center gap-3">
-                  <span className="text-sm font-medium w-28 text-right">
-                    Your Email :
-                  </span>
-                  <input
-                    type="email"
-                    placeholder="abc123@gmail.com"
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
+              {/* Email */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+                <span className="text-sm font-medium w-24 sm:text-right text-slate-700">
+                  Your Email :
+                </span>
+                <input
+                  className="flex-1 w-full p-2 rounded-md border border-slate-300 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400"
+                  type="email"
+                  placeholder="abc123@gmail.com"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
 
-                {/* Password */}
-                <div className="flex items-center gap-3">
-                  <span className="text-sm font-medium w-28 text-right">
-                    Password :
-                  </span>
-                  <input
-                    type="password"
-                    placeholder="*******"
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                </div>
+              {/* Password */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+                <span className="text-sm font-medium w-24 sm:text-right text-slate-700">
+                  Password :
+                </span>
+                <input
+                  className="flex-1 w-full p-2 rounded-md border border-slate-300 focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400"
+                  type="password"
+                  placeholder="*******"
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
 
-              </form>
-            </div>
+            </form>
           </div>
 
           {/* Login Button */}
           <button
             type="submit"
             onClick={handleLogin}
-            className="wcq-rose-btn w-30 rounded-md font-medium text-black bg-rose-500"
+            className="w-full sm:w-40 py-2.5 rounded-lg font-bold text-slate-900 bg-rose-500 hover:bg-rose-400 transition shadow-lg transform active:scale-95"
           >
             Sign In
           </button>
         </div>
 
         {/* Footer */}
-        <div className="h-15 flex justify-center items-center">
-          <p className="text-center text-slate-400 mt-4 text-sm">
+        <div className="mt-6 flex justify-center items-center">
+          <p className="text-center text-slate-400 text-sm">
             New to WCQ ?{" "}
             <span
               onClick={() => navigate("/register")}
-              className="text-teal-400 cursor-pointer"
+              className="text-teal-400 cursor-pointer font-semibold hover:underline"
             >
               Register
             </span>

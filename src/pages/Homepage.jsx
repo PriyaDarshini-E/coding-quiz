@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/images/wcq_logo.png";
 import ReviewSlider from "../components/ReviewSlider";
 import AddReview from "../components/AddReview";
+import { Menu, X } from "lucide-react";
 
 
 const Homepage = () => {
 
   const navigate = useNavigate();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // ✅ read login status (BOOLEAN)
   const isLoggedIn = localStorage.getItem("wcq_loggedIn") === "true";
@@ -77,7 +80,7 @@ const Homepage = () => {
             </a>
           </div>
 
-          <div className="flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-10">
             {isLoggedIn ? (
               <button
                 className="w-20 text-sm font-semibold text-rose-300 border border-rose-400/50 
@@ -107,8 +110,71 @@ const Homepage = () => {
             )}
           </div>
 
-
+          {/* Mobile Menu Toggle */}
+          <div className="md:hidden">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white p-1">
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-slate-800 border-b border-slate-700 py-4 px-6 flex flex-col gap-4">
+            <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-teal-400 transition block">
+              Home
+            </a>
+            <a href="#how-to" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-teal-400 transition block">
+              How-To
+            </a>
+            <a href="#quiz" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-rose-400 transition block">
+              Quiz-Mode
+            </a>
+            <a href="#review" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-rose-400 transition block">
+              Review
+            </a>
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-200 hover:text-rose-400 transition block">
+              Contact-us
+            </a>
+            <div className="h-px bg-slate-700 my-2"></div>
+            {isLoggedIn ? (
+              <button
+                className="w-full text-sm font-semibold text-rose-300 border border-rose-400/50 
+                 rounded-lg hover:bg-rose-400 hover:text-slate-900 transition py-2"
+                onClick={() => {
+                  handleLogout();
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Logout
+              </button>
+            ) : (
+              <div className="flex flex-col gap-3">
+                <button
+                  className="w-full text-sm font-semibold text-teal-300 border border-teal-400/50 
+                   rounded-lg hover:bg-teal-400 hover:text-slate-900 transition py-2"
+                  onClick={() => {
+                    navigate("/login");
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  Sign-up
+                </button>
+
+                <button
+                  className="w-full text-sm font-semibold text-rose-300 border border-rose-400/50 
+                   rounded-lg hover:bg-rose-400 hover:text-slate-900 transition py-2"
+                  onClick={() => {
+                    navigate("/register");
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  Register
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </nav>
 
       <section id="home"
@@ -134,33 +200,35 @@ const Homepage = () => {
           </div>
 
           {/* RIGHT PREVIEW CARD */}
-          <div className="flex gap-0 ">
-            <div className="bg-slate-100 rounded-2xl shadow-xl w-250 h-60">
+          <div className="flex gap-0 justify-center">
+            <div className="bg-slate-100 rounded-2xl shadow-xl w-full max-w-sm h-60">
 
-              <h3 className="text-lg font-bold text-slate-800 mb-1">
-                🤔 Weird Question Preview
-              </h3>
+              <div className="p-4">
+                <h3 className="text-lg font-bold text-slate-800 mb-1">
+                  🤔 Weird Question Preview
+                </h3>
 
-              <p className="text-slate-700 font-medium ">
-                What is the output of :{" "}
-                <code className="font-semibold">typeof NaN ?</code>
-              </p>
+                <p className="text-slate-700 font-medium ">
+                  What is the output of :{" "}
+                  <code className="font-semibold">typeof NaN ?</code>
+                </p>
 
-              <ul className=" text-slate-700">
-                <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer transition">
-                  A) "NaN"
-                </li>
-                <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer 
-          font-semibold text-teal-600 transition">
-                  B) number ✅
-                </li>
-                <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer transition">
-                  C) undefined
-                </li>
-                <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer transition">
-                  D) object
-                </li>
-              </ul>
+                <ul className=" text-slate-700">
+                  <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer transition">
+                    A) "NaN"
+                  </li>
+                  <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer 
+            font-semibold text-teal-600 transition">
+                    B) number ✅
+                  </li>
+                  <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer transition">
+                    C) undefined
+                  </li>
+                  <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer transition">
+                    D) object
+                  </li>
+                </ul>
+              </div>
 
             </div>
           </div>
@@ -177,10 +245,10 @@ const Homepage = () => {
         </p>
 
 
-        <div className="h-90 w-full flex  justify-center items-center ">
-          <div className="flex justify-around items-center w-full text-center">
+        <div className="w-full flex justify-center items-center mt-10 md:mt-0">
+          <div className="flex flex-col md:flex-row justify-around items-center w-full text-center gap-10 md:gap-0">
 
-            <div id="step1" className="bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 h-70 w-60 rounded-xl shadow-lg  mt-10 hover:scale-105 transition flex gap-5 flex-col" >
+            <div id="step1" className="bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 h-70 w-60 rounded-xl shadow-lg hover:scale-105 transition flex gap-5 flex-col" >
               <div className="flex justify-center items-center h-23">
                 <div className="w-14 h-14 rounded-full bg-linear-to-br from-rose-400 to-teal-400
                         flex items-center justify-center text-gray-720 font-bold text-xl
@@ -190,12 +258,12 @@ const Homepage = () => {
               <h3 className="text-xl font-semibold text-slate-100 mb-2">
                 Choose Quiz Level
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed">
+              <p className="text-slate-300 text-sm leading-relaxed px-4">
                 Pick Beginner, Intermediate, or Advanced level to start the quiz.
               </p>
             </div>
 
-            <div id="step2" className="bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 h-70 w-65 rounded-xl shadow-lg  mt-10 hover:scale-105 transition flex gap-5 flex-col" >
+            <div id="step2" className="bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 h-70 w-60 rounded-xl shadow-lg  mt-10 md:mt-0 hover:scale-105 transition flex gap-5 flex-col" >
               <div className="flex justify-center items-center h-23">
                 <div className="w-14 h-14 rounded-full bg-linear-to-br from-rose-400 to-teal-400
                         flex items-center justify-center text-gray-720 font-bold text-xl
@@ -206,13 +274,13 @@ const Homepage = () => {
               <h3 className="text-xl font-semibold text-slate-100 mb-2">
                 Read the Weird Question
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed">
+              <p className="text-slate-300 text-sm leading-relaxed px-4">
                 Each question tests quirks, logic traps, and output predictions.
               </p>
             </div>
 
 
-            <div id="step3" className="bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 h-70 w-60 rounded-xl shadow-lg  mt-10 hover:scale-105 transition flex gap-5 flex-col" >
+            <div id="step3" className="bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 h-70 w-60 rounded-xl shadow-lg  mt-10 md:mt-0 hover:scale-105 transition flex gap-5 flex-col" >
               <div className="flex justify-center items-center h-23">
                 <div className="w-14 h-14 rounded-full bg-linear-to-br from-rose-400 to-teal-400
                         flex items-center justify-center text-gray-720 font-bold text-xl
@@ -222,13 +290,13 @@ const Homepage = () => {
               <h3 className="text-xl font-semibold text-slate-100 mb-2">
                 Select Your Answer
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                Choose the correct output — looks simple but is't 😄
+              <p className="text-slate-300 text-sm leading-relaxed px-4">
+                Choose the correct output — looks simple but isn't 😄
               </p>
             </div>
 
 
-            <div id="step4" className="bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 h-70 w-60 rounded-xl shadow-lg  mt-10 hover:scale-105 transition flex gap-5 flex-col" >
+            <div id="step4" className="bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 h-70 w-60 rounded-xl shadow-lg  mt-10 md:mt-0 hover:scale-105 transition flex gap-5 flex-col" >
               <div className="flex justify-center items-center h-23">
                 <div className="w-14 h-14 rounded-full bg-linear-to-br from-rose-400 to-teal-400
                         flex items-center justify-center text-gray-720 font-bold text-xl
@@ -238,7 +306,7 @@ const Homepage = () => {
               <h3 className="text-xl font-semibold text-slate-100 mb-2">
                 Check Result & Learn
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed">
+              <p className="text-slate-300 text-sm leading-relaxed px-4">
                 View instant results with explanations to improve your skills.
               </p>
             </div>
