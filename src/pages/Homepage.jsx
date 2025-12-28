@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/images/wcq_logo.png";
 import ReviewSlider from "../components/ReviewSlider";
+import AddReview from "../components/AddReview";
 
 
 const Homepage = () => {
@@ -26,7 +27,7 @@ const Homepage = () => {
     navigate(path);
   };
 
-   
+
   return (
     <>
       <header>
@@ -110,71 +111,71 @@ const Homepage = () => {
         </div>
       </nav>
 
-     <section id="home"
-  className="min-h-[70vh] flex items-center justify-center 
+      <section id="home"
+        className="min-h-[70vh] flex items-center justify-center 
   bg-linear-to-br from-slate-700 via-slate-800 to-slate-900"
->
-  <div className="max-w-5xl w-full grid md:grid-cols-2 gap-12 items-center px-6">
+      >
+        <div className="max-w-5xl w-full grid md:grid-cols-2 gap-12 items-center px-6">
 
-    {/* LEFT CONTENT */}
-    <div>
-      <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
-        Think <span className="text-teal-400">Weird</span>,
-        <br />
-        Code <span className="text-rose-400">Smart</span> 🤯
-      </h2>
+          {/* LEFT CONTENT */}
+          <div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+              Think <span className="text-teal-400">Weird</span>,
+              <br />
+              Code <span className="text-rose-400">Smart</span> 🤯
+            </h2>
 
-      <p className="mt-4 text-slate-300 text-lg">
-        WCQ is not a normal quiz.
-        It tests your <span className="text-teal-300">logic</span>,
-        your <span className="text-rose-300">coding traps</span>,
-        and your ability to think differently.
-      </p>
-    </div>
+            <p className="mt-4 text-slate-300 text-lg">
+              WCQ is not a normal quiz.
+              It tests your <span className="text-teal-300">logic</span>,
+              your <span className="text-rose-300">coding traps</span>,
+              and your ability to think differently.
+            </p>
+          </div>
 
-    {/* RIGHT PREVIEW CARD */}
-    <div className="flex gap-0 ">
-      <div className="bg-slate-100 rounded-2xl shadow-xl w-250 h-60">
+          {/* RIGHT PREVIEW CARD */}
+          <div className="flex gap-0 ">
+            <div className="bg-slate-100 rounded-2xl shadow-xl w-250 h-60">
 
-        <h3 className="text-lg font-bold text-slate-800 mb-1">
-          🤔 Weird Question Preview
-        </h3>
+              <h3 className="text-lg font-bold text-slate-800 mb-1">
+                🤔 Weird Question Preview
+              </h3>
 
-        <p className="text-slate-700 font-medium ">
-          What is the output of :{" "}
-          <code className="font-semibold">typeof NaN ?</code>
-        </p>
+              <p className="text-slate-700 font-medium ">
+                What is the output of :{" "}
+                <code className="font-semibold">typeof NaN ?</code>
+              </p>
 
-        <ul className=" text-slate-700">
-          <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer transition">
-            A) "NaN"
-          </li>
-          <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer 
+              <ul className=" text-slate-700">
+                <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer transition">
+                  A) "NaN"
+                </li>
+                <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer 
           font-semibold text-teal-600 transition">
-            B) number ✅
-          </li>
-          <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer transition">
-            C) undefined
-          </li>
-          <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer transition">
-            D) object
-          </li>
-        </ul>
+                  B) number ✅
+                </li>
+                <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer transition">
+                  C) undefined
+                </li>
+                <li className="p-3 rounded-lg hover:bg-slate-200 cursor-pointer transition">
+                  D) object
+                </li>
+              </ul>
 
-      </div>
-    </div>
+            </div>
+          </div>
 
-  </div>
-</section>
+        </div>
+      </section>
 
 
       <section id="how-to"
         className="min-h-[70vh]   bg-linear-to-br from-slate-700 via-slate-800 to-slate-900" >
-          <h4 className=" text-3xl font-semibold text-teal-500 text-center">How it works</h4>
-          <p className="text-center text-slate-300 mt-3 ">
-            Follow these 4 simple steps to challenge your coding brain 🧠
-          </p>
-    
+        <h4 className=" text-3xl font-semibold text-teal-500 text-center">How it works</h4>
+        <p className="text-center text-slate-300 mt-3 ">
+          Follow these 4 simple steps to challenge your coding brain 🧠
+        </p>
+
 
         <div className="h-90 w-full flex  justify-center items-center ">
           <div className="flex justify-around items-center w-full text-center">
@@ -235,7 +236,7 @@ const Homepage = () => {
               </div>
 
               <h3 className="text-xl font-semibold text-slate-100 mb-2">
-                  Check Result & Learn
+                Check Result & Learn
               </h3>
               <p className="text-slate-300 text-sm leading-relaxed">
                 View instant results with explanations to improve your skills.
@@ -246,7 +247,7 @@ const Homepage = () => {
       </section>
 
       <section id="quiz"
-       className="min-h-[70vh]   bg-linear-to-br from-slate-700 via-slate-800 to-slate-900" >
+        className="min-h-[70vh]   bg-linear-to-br from-slate-700 via-slate-800 to-slate-900" >
 
         <div className="flex flex-col gap-2 ">
           <h4 className="text-3xl font-semibold text-rose-300 text-center">
@@ -301,7 +302,7 @@ const Homepage = () => {
               <button className="text-lg font-semibold rounded-xl
                            text-slate-200 border border-slate-700
                            hover:bg-slate-800 hover:border-yellow-400 hover:text-yellow-400
-                           transition" onClick={() => handleQuizClick("/js")}>
+                           transition" onClick={() => handleQuizClick("/javascript")}>
                 JavaScript
               </button>
 
@@ -354,13 +355,97 @@ const Homepage = () => {
         </div>
       </section>
 
-      <section id="review" className="h-100 bg-linear-to-br from-slate-700 via-slate-800 to-slate-900 flex  flex-col gap-8 ">
-        <ReviewSlider />
+      <section id="review"
+        className="min-h-[70vh] bg-linear-to-br from-slate-700 via-slate-800 to-slate-900
+  flex flex-col gap-10 justify-center"
+      >
+        <h2 className="text-3xl font-semibold text-center text-rose-300">
+          {isLoggedIn ? "Share Your Experience ⭐" : "What Users Say ❤️"}
+        </h2>
+
+        {!isLoggedIn && (
+          <ReviewSlider />
+        )}
+
+        {isLoggedIn && (
+          <AddReview />
+        )}
       </section>
 
-      <section id="review" className="h-100 bg-linear-to-br from-slate-700 via-slate-800 to-slate-900 flex  flex-col gap-8 ">
-        <footer> <h3>Contact us </h3></footer>
-      </section>
+
+      <footer id="contact"
+        className="bg-slate-900 border-t border-slate-700 text-slate-300" >
+        <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+
+          {/* BRAND */}
+          <div className="flex flex-col gap-3">
+            <h3 className="text-2xl font-extrabold">
+              <span className="text-teal-400">Weird</span>{" "}
+              <span className="text-rose-400">Coding Quiz</span>
+            </h3>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              A logic-driven coding quiz platform designed to challenge
+              your thinking beyond syntax.
+            </p>
+            <p className="text-xs text-slate-500 italic">
+              Think Weird. Code Smart.
+            </p>
+          </div>
+
+          {/* QUICK LINKS */}
+          <div>
+            <h4 className="text-lg font-semibold text-slate-200 mb-4">
+              Quick Links
+            </h4>
+            <ul className="space-y-2 text-sm">
+              <li className="hover:text-teal-400 cursor-pointer">Home</li>
+              <li className="hover:text-teal-400 cursor-pointer">How It Works</li>
+              <li className="hover:text-rose-400 cursor-pointer">Quiz Mode</li>
+              <li className="hover:text-rose-400 cursor-pointer">Reviews</li>
+            </ul>
+          </div>
+
+          {/* CONTACT */}
+          <div>
+            <h4 className="text-lg font-semibold text-slate-200 mb-4">
+              Contact
+            </h4>
+
+            <div className="space-y-2 text-sm text-slate-400">
+              <p className="flex items-center gap-2">
+                <span>📧</span>
+                <span>support@weirdcodingquiz.com</span>
+              </p>
+
+              <p className="italic text-slate-300">
+                Developed by <span className="font-semibold text-rose-400">
+                  Priya Darshini E
+                </span>
+              </p>
+
+              <p className="flex items-center gap-2">
+                <span>🌐</span>
+                <span>Built with React & Tailwind CSS</span>
+              </p>
+            </div>
+
+            <button
+              onClick={() => navigate("/register")}
+              className="mt-4 px-4 py-2 text-sm font-semibold
+        border border-teal-400 text-teal-300 rounded-lg
+        hover:bg-teal-400 hover:text-slate-900 transition"
+            >
+              Get Started 🚀
+            </button>
+          </div>
+        </div>
+
+        {/* BOTTOM BAR */}
+        <div className="border-t border-slate-700 text-center py-4 text-xs text-slate-500">
+          © {new Date().getFullYear()} Weird Coding Quiz · All Rights Reserved
+        </div>
+      </footer>
+
 
     </>
   );

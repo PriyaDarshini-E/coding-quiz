@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Shortcuts = () => {
+const Sql = () => {
   const navigate = useNavigate();
   const [showPopupBegin, setShowPopupBegin] = useState(false);
   const [showPopupInter, setShowPopupInter] = useState(false);
@@ -24,7 +24,7 @@ const Shortcuts = () => {
         </button>
 
         <header className="text-lg md:text-xl font-extrabold text-white tracking-wide">
-          ⌨️ Keyboard Shortcuts Quiz
+          🗄️ SQL Fundamentals Quiz
         </header>
       </div>
 
@@ -79,7 +79,7 @@ const Shortcuts = () => {
               <button
                 className="w-30 h-8 rounded-lg bg-teal-600 text-white
                 font-semibold hover:bg-teal-700 transition"
-                onClick={() => navigate("/short_begin")}
+                onClick={() => navigate("/sql_begin")}
               >
                 Start Quiz
               </button>
@@ -117,7 +117,7 @@ const Shortcuts = () => {
               <button
                 className="w-30 h-8 rounded-lg bg-teal-600 text-white
                 font-semibold hover:bg-teal-700 transition"
-                onClick={() => navigate("/short_inter")}
+                onClick={() => navigate("/sql_inter")}
               >
                 Start Quiz
               </button>
@@ -155,7 +155,7 @@ const Shortcuts = () => {
               <button
                 className="w-30 h-8 rounded-lg bg-teal-600 text-white
                 font-semibold hover:bg-teal-700 transition"
-                onClick={() => navigate("/short_advan")}
+                onClick={() => navigate("/sql_advan")}
               >
                 Start Quiz
               </button>
@@ -168,4 +168,4 @@ const Shortcuts = () => {
   );
 };
 
-export default Shortcuts;
+export default Sql;

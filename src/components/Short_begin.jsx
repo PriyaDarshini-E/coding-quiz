@@ -174,7 +174,7 @@ const Short_begin = () => {
           <button
             className="absolute left-10 w-32 h-10 border border-white/40 text-white
             rounded-lg text-sm font-semibold hover:bg-white hover:text-teal-600"
-            onClick={() => navigate("/Shortcuts")}
+            onClick={() => navigate("/shortcuts")}
           >
             BACK
           </button>
@@ -258,7 +258,7 @@ const Short_begin = () => {
               </button>
 
               <button
-                onClick={() => navigate("/Shortcuts")}
+                onClick={() => navigate("/shortcuts")}
                 className="flex-1 border py-2 rounded-lg"
               >
                 Back

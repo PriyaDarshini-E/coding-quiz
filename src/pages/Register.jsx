@@ -41,7 +41,7 @@ const Register = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-900">
-      <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 w-[700px] max-w-full">
+      <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700 w-700px max-w-full">
 
         <div className=" h-15 flex justify-center items-center">
           <h2 className="text-3xl font-extrabold text-center text-rose-400 mb-6">
@@ -49,8 +49,8 @@ const Register = () => {
           </h2>
         </div>
 
-        <div className="flex justify-center items-center flex-col gap-3" >
-          <div className="bg-slate-200 h-60  w-120 rounded-2xl flex justify-center items-center flex-col">
+        <div className="flex justify-center items-center flex-col gap-3 " >
+          <div className="bg-slate-200 h-50  w-120 rounded-2xl flex justify-center flex-col">
             <div className=" h-40 w-full px-4 py-3 rounded-lg 
                 flex items-center justify-center">
 
@@ -71,7 +71,6 @@ const Register = () => {
                     placeholder="Full Name"
                     onChange={handleChange}
                     required
-                    className="wcq-input flex-1"
                   />
                 </div>
 
@@ -86,14 +85,13 @@ const Register = () => {
                     placeholder="abc123@gmail.com"
                     onChange={handleChange}
                     required
-                    className="wcq-input flex-1"
                   />
                 </div>
 
                 {/* Password */}
                 <div className="flex items-center gap-3">
                   <span className="text-sm font-medium w-28 text-right">
-                    Your Password :
+                    Password :
                   </span>
                   <input
                     type="password"
@@ -101,12 +99,11 @@ const Register = () => {
                     placeholder="*******"
                     onChange={handleChange}
                     required
-                    className="wcq-input flex-1"
                   />
-                  <h4 className="text-xs text-gray-600 whitespace-nowrap">
-                    5 chars + 1 special
-                  </h4>
                 </div>
+                 <h4 className="text-xs flex justify-center text-gray-600 mr-9 whitespace-nowrap">
+                   (5 chars + 1 special)
+                  </h4>
               </form>
             </div>
           </div>
@@ -118,9 +115,6 @@ const Register = () => {
           >
             Register now
           </button>
-
-
-
         </div>
 
         <div className="h-15 flex justify-center items-center ">
@@ -128,7 +122,7 @@ const Register = () => {
             Already registered?{" "}
             <span
               onClick={() => navigate("/Login")}
-              className="text-teal-400 cursor-pointer">
+              className="text-rose-400 cursor-pointer">
               Sign-up
             </span>
           </p>
