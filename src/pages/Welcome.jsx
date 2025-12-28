@@ -5,7 +5,7 @@ const Welcome = () => {
 
   return (
     <div className="h-screen flex justify-center items-center bg-slate-700">
-      <div className="p-10 rounded-2xl text-center w-[360px] shadow-2xl animate-float bg-teal-300">
+      <div className="p-10 rounded-2xl text-center w-360px shadow-2xl animate-float bg-teal-300">
         <h1 className="text-3xl font-bold mb-3">Weird Coding Quiz 🤯</h1>
         <p className="text-sm text-[#272727] mb-8">
           Think you know coding? Let's test your brain in a weird way!
